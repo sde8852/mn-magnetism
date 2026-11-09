@@ -40,7 +40,6 @@ def build_interim_dataset(mn_gz_file_name, data_ids_file_name):
     return interim_df
 
 
-
 #============================================================
 #============================================================
 # runs when executed as a script
