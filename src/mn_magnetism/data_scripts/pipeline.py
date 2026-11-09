@@ -6,6 +6,9 @@ import pandas as pd
 
 from mn_magnetism.data_scripts.load import load_data
 from mn_magnetism.data_scripts.clean_index import extract_all_rows, match_data_ids
+from mn_magnetism.features.ground_state import ground_state_extraction
+
+#============================================================
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -36,8 +39,13 @@ def build_interim_dataset(mn_gz_file_name, data_ids_file_name):
 
     return interim_df
 
+
+
+#============================================================
+#============================================================
 # runs when executed as a script
 if __name__ == "__main__":
+    # -----------------------------------------------
     interim_dataset_df = build_interim_dataset(
         mn_gz_file_name,
         data_ids_file_name
@@ -45,3 +53,9 @@ if __name__ == "__main__":
 
     print(interim_dataset_df.shape)
     print(interim_dataset_df.head())
+
+    # -----------------------------------------------
+    ground_df = ground_state_extraction()
+
+    
+    print(ground_df.head())
